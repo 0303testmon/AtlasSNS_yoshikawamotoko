@@ -47,8 +47,7 @@ class RegisterController extends Controller
         $request->validate([
             'username' => 'required | between:2,12',
             'mail' => 'required | between:5,40 | unique:users',
-            'password' => 'required | alpha_dash | between:8,20',
-            'passwordconfirm' => 'required | alpha_dash | between:8,20 | unique:users',
+            'password' => 'required | alpha_dash | between:8,20 | confirmed' ,
         ]);
 
             $username = $request->input('username');
@@ -63,7 +62,7 @@ class RegisterController extends Controller
 
             //セッションを利用してユーザ名を表示させる
             $request->session()->put('username', $username);
-            return redirect('added')->with('username' , $input);
+            return redirect('added')->with('username' , $username);
         }
         return view('auth.register');
     }
