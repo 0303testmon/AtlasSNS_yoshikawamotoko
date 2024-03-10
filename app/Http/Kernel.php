@@ -41,6 +41,11 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        //ログイン中のみページを参照できる
+      'loginUserCheck' => [
+          \App\Http\Middleware\LoginUserCheck::class,
+      ],
     ];
 
     /**
