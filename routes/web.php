@@ -43,11 +43,14 @@ Route::get('/follower-list','PostsController@index');
 Route::post('/register', 'Auth\RegisterController@register');
 
 //ログインページ
-Route::post('/login', 'Auth\LoginController@login');
+Route::post('/login', 'HomeController@index');
+
+//homeページ
+// Route::get('/home', 'Auth\LoginController@login');
 
 //ログイン制限
 Route::group(['middleware' => ['loginUserCheck']], function() {
-  //ここに実行したい処理を記述
+
    Route::get('/top','PostsController@index');
    Route::get('/profile','UsersController@profile');
    Route::get('/search','UsersController@index');
