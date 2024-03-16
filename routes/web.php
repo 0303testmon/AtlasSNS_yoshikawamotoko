@@ -14,13 +14,13 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/home', 'HomeController@index')->name('home');
-
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/login', 'Auth\LoginController@login')->name('login');
 //Auth::routes();
 
 
 //ログアウト中のページ
-Route::get('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');
 
@@ -44,10 +44,8 @@ Route::get('/follower-list','PostsController@index');
 Route::post('/register', 'Auth\RegisterController@register');
 
 //ログインページ
-Route::post('/login', 'HomeController@index');
+// Route::post('/login', 'HomeController@index');
 
-//homeページ
-// Route::get('/home', 'Auth\LoginController@login');
 
 //ログイン制限
 Route::group(['middleware' => ['loginUserCheck']], function() {

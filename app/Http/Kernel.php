@@ -42,10 +42,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
-        //ログイン中のみページを参照できる
-      'loginUserCheck' => [
-          \App\Http\Middleware\LoginUserCheck::class,
-      ],
+
     ];
 
     /**
@@ -66,6 +63,11 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        //ログイン中のみページを参照できる
+      'loginUserCheck' =>
+          \App\Http\Middleware\LoginUserCheck::class,
+
     ];
 
     /**

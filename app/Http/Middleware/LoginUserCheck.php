@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class LoginUserCheck
 {
@@ -22,7 +23,7 @@ class LoginUserCheck
 
          //ログイン者とカート情報作成者が一致しなければ別のページにリダイレクト
          if ($loginId != $requestId) {
-            return redirect(route('home'));
+            return redirect(route('login'));
          }
 
       //チェックに合格し次の処理に進むことができる
