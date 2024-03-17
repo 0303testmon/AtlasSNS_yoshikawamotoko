@@ -65,8 +65,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         //ログイン中のみページを参照できる
-      'loginUserCheck' =>
-          \App\Http\Middleware\LoginUserCheck::class,
+    //   'loginUserCheck' =>
+    //       \App\Http\Middleware\LoginUserCheck::class,
+
 
     ];
 

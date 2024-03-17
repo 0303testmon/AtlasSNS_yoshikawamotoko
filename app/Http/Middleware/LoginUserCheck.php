@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
+
 class LoginUserCheck
 {
     /**
@@ -14,17 +15,24 @@ class LoginUserCheck
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
+    // public function handle($request, Closure $next)
+    // {
          //ログインユーザーIDを取得
-         $loginId = Auth::id();
+        //  $loginId = Auth::id();
          //カート情報のユーザーIDを取得
-         $requestId = $request->user_id;
+        //  $requestId = $request->username;
+        //   $requestId->middleware('auth');
 
          //ログイン者とカート情報作成者が一致しなければ別のページにリダイレクト
-         if ($loginId != $requestId) {
-            return redirect(route('login'));
-         }
+        //  if ($loginId != $requestId) {
+        //     return redirect(route('login'));
+        //  }
+
+
+
+       public function handle($request, Closure $next)
+   {
+
 
       //チェックに合格し次の処理に進むことができる
       return $next($request);

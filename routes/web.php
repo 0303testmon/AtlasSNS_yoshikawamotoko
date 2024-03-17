@@ -47,8 +47,8 @@ Route::post('/register', 'Auth\RegisterController@register');
 // Route::post('/login', 'HomeController@index');
 
 
-//ログイン制限
-Route::group(['middleware' => ['loginUserCheck']], function() {
+//ログイン制限 authで制限が付けられるlaravel特有の機能
+  Route::group(['middleware' => 'auth'], function() {
 
    Route::get('/top','PostsController@index');
    Route::get('/profile','UsersController@profile');
