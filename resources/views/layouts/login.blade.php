@@ -19,31 +19,47 @@
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
 
-    <!-- cssとjavascript　(bootstrap) -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- jsを使用 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+    <!-- ↓この記述でつなげている -->
+    <!-- <script src="../../../public/js/script.js"></script> -->
+     <!-- <script src="{{ asset('js/script.js') }}"></script> -->
+
+    <!-- アコーディオンメニューcssとjavascript　(bootstrap) -->
+      <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script> -->
 
 </head>
 <body>
-<!--     <header>
+    <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/logo.png"></a></h1>
+        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+                    <p>{{Auth::user()->username}}さん<img src="images/icon1.png"></p>
                 <div>
+
+                <!--アコーディオンメニュー矢印 -->
+                <button type="button" class="menu-btn">
+                <span class="inn"></span>
+                </button>
+
+        <nav class="menu">
                 <ul>
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
+        </nav>
             </div>
         </div>
-    </header> -->
+    </header>
 
-        <nav class="navbar bg-body-secondary" data-bs-theme="dark">
+    <!--アコーディオンメニュー -->
+        <!-- <nav class="navbar bg-body-secondary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/top"><img src="images/logo.png"></a>
+                <a class="navbar-brand" href="/top"><img src="images/atlas.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -62,7 +78,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
 
     <div id="row">
         <div id="container">
@@ -87,7 +103,16 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+
+    <!-- jsを使用 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="{{ asset('js/script.js') }}"></script>
+    <!-- ↓この記述でつなげている -->
+    <!-- <script src="../../../public/js/script.js"></script> -->
+     <!-- <script src="{{ asset('js/script.js') }}"></script> -->
+
 </body>
 </html>
