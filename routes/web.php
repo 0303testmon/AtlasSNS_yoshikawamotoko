@@ -57,3 +57,7 @@ Route::post('/register', 'Auth\RegisterController@register');
    Route::get('/follower-list','PostsController@index');
 
 });
+
+//フォロー、フォロワー表示
+Route::get('/follow-list','FollowsController@follows');
+Route::get('/follower-list','FollowsController@followers');
