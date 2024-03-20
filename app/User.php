@@ -28,13 +28,13 @@ class User extends Authenticatable
     ];
 
 
-    //フォローの人数取得
+    //フォローしてるかどうか
     public function isFollowing(Int $user_id){
 
         return (boolean) $this->follows()->where('followed_id',$user_id)->first(['follows.id']);
     }
 
-    ///フォロワーの人数取得
+    ///フォローされてるかどうか
     public function isFollowed(Int $user_id){
 
         return (boolean) $this->followers()->where('following_id',$user_id)->first(['follows.id']);
