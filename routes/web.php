@@ -65,3 +65,6 @@ Route::get('/follower-list','FollowsController@followers');
 
 //検索ページ
 Route::get('/search','UsersController@search');
+
+//投稿機能
+Route::get('/top','PostsController@postCreate');

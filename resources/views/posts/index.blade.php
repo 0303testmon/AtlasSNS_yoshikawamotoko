@@ -2,17 +2,28 @@
 
 @section('content')
 <h2>機能を実装していきましょう。</h2>
-<form class="post" method="POST">
-
+<div class="container">
+{!! Form::open(['url' => '/top']) !!}
 <div>
   <a>
     <img src="images/icon1.png">
   </a>
-  <textarea class="post-main" name="post" placeholder="投稿内容を入力してください。" width="1000px"></textarea>
+  <div class="post-main">
+     {{ Form::input('text','newPost',null,['required', 'class' =>'form-control','placeholder'=>'投稿内容を入力してください。'])}}
 </div>
-<button class="post-img">
-<img src="images/post.png" width="50px" height="50px">
+<button type="submit" class="post-img">
+<img src="images/post.png" width="50px" height="50px" alt="送信">
 </button>
-</form>
+ {!! Form::close() !!}
+</div>
+<div>
+  @foreach($list as $list)
+  <tr>
+    <td>{{ $list->user_id }}</td>
+    <td>{{ $list->post }}</td>
+    <td>{{ $list->create_at }}</td>
+  </tr>
+  @endforeach
+</div>
 
 @endsection
