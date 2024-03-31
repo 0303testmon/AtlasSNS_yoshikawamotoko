@@ -123,3 +123,23 @@ header {
     /* 右寄せにする */
     margin-left: 900px;
 }
+
+/* 検索フォーム */
+.search_container input[type="text"] {
+    border: 1px solid #999;
+    padding: 3px 10px;
+    border-radius: 3px;
+    height: 2.2em;
+    overflow: hidden;
+    margin-left: 50px;
+}
+
+.search_container input[type="text"]:focus {
+    outline: 0;
+    height: 2.0em;
+}
+
+.search_container button[type="submit"] {
+    border: none;
+
+}
