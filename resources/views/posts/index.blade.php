@@ -3,7 +3,7 @@
 @section('content')
 <h2>機能を実装していきましょう。</h2>
 <div class="container">
-{!! Form::open(['url' => '/top']) !!}
+{!! Form::open(['url' => '/postcreate']) !!}
 <div>
   <a>
     <img src="images/icon1.png">
