@@ -19,6 +19,14 @@ class PostsController extends Controller
 
     //投稿の登録処理
     public function postCreate(Request $request){
+
+        // if($request->isMethod('post')){
+
+             //バリデーション
+        $request->validate([
+            'newPost' => 'required | between:1,150'
+        ]);
+
         //投稿フォームに書かれた情報を取得
         $post=$request->input('newPost');
         $user_id=Auth::user()->id;
@@ -29,4 +37,7 @@ class PostsController extends Controller
         ]);
         return redirect('/top');
     }
+
+    //     return view('auth.register');
+    // }
 }
