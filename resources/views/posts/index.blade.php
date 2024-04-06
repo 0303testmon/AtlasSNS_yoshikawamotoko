@@ -21,7 +21,6 @@
   <tr>
     <td>{{ $list->user_id }}</td>
     <td>{{ $list->post }}</td>
-    <td>{{ $list->create_at }}</td>
   </tr>
   @endforeach
 </div>

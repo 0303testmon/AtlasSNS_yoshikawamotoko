@@ -9,7 +9,6 @@ class Post extends Model
     //投稿処理
     protected $fillable =[
         'user_id',
-        'post',
-        'create_at'
+        'post'
     ];
 }

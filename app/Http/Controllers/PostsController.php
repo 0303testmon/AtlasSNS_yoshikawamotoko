@@ -22,12 +22,10 @@ class PostsController extends Controller
         //投稿フォームに書かれた情報を取得
         $post=$request->input('newPost');
         $user_id=Auth::user()->id;
-        $create_at->timestamp('created_at');
         //Postsテーブルの user_id post に変数を当てる
         Post::create([
             'user_id'=>$user_id,
-            'post'=>$post,
-            'created_at' => new DateTime()
+            'post'=>$post
         ]);
         return redirect('/top');
     }
