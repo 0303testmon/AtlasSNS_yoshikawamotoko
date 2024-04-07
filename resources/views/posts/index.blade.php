@@ -44,10 +44,15 @@
           <form action="/post/update" method="POST">
             @csrf
           <textarea name="upPost" class="modal_post"></textarea>
+          <br>
           <input type="hidden" name="id" class="modal_id" value="">
-          <input type="submit" value="更新">
+          {{-- <input type="submit" value="更新">
+          <img src="./images/edit.png" alt="編集"> --}}
+          <button type="submit" class="modal_img">
+          <img src="images/edit.png" width="50px" height="50px" alt="更新">
+          </button>
           </form>
-          <a class="js-modal-close" href="">閉じる</a>
+          <a class="js-modal-close" href=""></a>
         </div>
       </div>
     </div>

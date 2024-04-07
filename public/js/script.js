@@ -17,7 +17,7 @@ $(function () {
 $(function () {
   //編集ボタン押した際の処理
   $('.js-modal-open').on('click', function () {
-    $('js_modal').fadeIn();
+    $('.js_modal').fadeIn();
     // 該当の投稿の内容を変数に格納
     var post = $(this).attr('post');
     var post_id = $(this).attr('post_id');
