@@ -7,17 +7,17 @@ $(function () {
 });
 
 //モーダル開く処理
-$(function () {
-  $("js-modal-open").click(function () {
-    console.log(js - modal);
-    $(js - modal).fadeIn();
-  });
-});
+// $(function () {
+//   $("js-modal-open").click(function () {
+//     console.log(js_modal);
+//     $(js_modal).fadeIn();
+//   });
+// });
 
 $(function () {
   //編集ボタン押した際の処理
   $('.js-modal-open').on('click', function () {
-    $('js-modal').fadeIn();
+    $('js_modal').fadeIn();
     // 該当の投稿の内容を変数に格納
     var post = $(this).attr('post');
     var post_id = $(this).attr('post_id');
@@ -29,7 +29,7 @@ $(function () {
 
   //背景部分や閉じるボタンを押した際の処理
   $('.js-modal-close').on('click', function () {
-    $('.js-modal').fadeOut();
+    $('.js_modal').fadeOut();
     return false;
   });
 });

@@ -38,7 +38,7 @@
     @endforeach
 
     {{-- モーダルの中身 --}}
-    <div class="modal js-modal">
+    <div class="modal js_modal">
       <div class="modal_bg js-modal-close"></div>
         <div class="modal_content">
           <form action="/post/update" method="POST">

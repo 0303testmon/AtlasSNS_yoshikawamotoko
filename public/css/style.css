@@ -148,3 +148,8 @@ header {
     border: none;
 
 }
+
+/* 投稿編集 */
+.modal_content {
+    display: flex;
+}
