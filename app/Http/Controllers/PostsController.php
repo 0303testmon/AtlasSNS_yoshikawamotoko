@@ -20,7 +20,6 @@ class PostsController extends Controller
     //投稿の登録処理
     public function postCreate(Request $request){
 
-        // if($request->isMethod('post')){
 
              //バリデーション
         $request->validate([
@@ -38,6 +37,14 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-    //     return view('auth.register');
-    // }
+    //投稿の編集処理
+    public function postUpdate(Request $request){
+        //投稿フォームに書かれた情報を取得
+        $id = $request->input('id');
+        $up_post = $request->input('upPost');
+
+        Post::where('id',$id)->update(['post'=>$up_post]);
+
+        return redirect('/top');
+    }
 }
