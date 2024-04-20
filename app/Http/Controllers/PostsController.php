@@ -47,4 +47,14 @@ class PostsController extends Controller
 
         return redirect('/top');
     }
+
+        //投稿の削除処理
+    public function postDelete(Request $request){
+        //投稿フォームに書かれた情報を取得
+        $id = $request->input('id');
+        dd($id);
+        Post::where('id',$id)->delete();
+
+        return redirect('/top');
+    }
 }

@@ -32,6 +32,9 @@
             <img src="./images/edit.png" alt="編集"></a>
         </div>
       </td>
+      {{-- 削除 --}}
+      <td><a class="btn btn-danger" href="" post_id="{{ $list->id }}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')">
+        <img src="./images/trash.png" alt="削除"></a></td>
     </tr>
       <br>
       <hr>
@@ -49,7 +52,7 @@
           {{-- <input type="submit" value="更新">
           <img src="./images/edit.png" alt="編集"> --}}
           <button type="submit" class="modal_img">
-          <img src="images/edit.png" width="50px" height="50px" alt="更新">
+          <img src="images/edit.png" width="100%"  alt="更新">
           </button>
           </form>
           <a class="js-modal-close" href=""></a>

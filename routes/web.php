@@ -69,5 +69,8 @@ Route::get('/search','UsersController@search');
 //投稿登録機能
 Route::post('/postcreate','PostsController@postCreate');
 
-// 登録更新機能
+// 投稿更新機能
 Route::post('/post/update','PostsController@postUpdate');
+
+// 投稿削除機能
+Route::post('/post/delete','PostsController@postDelete');
