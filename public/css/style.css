@@ -204,3 +204,19 @@ header {
     margin: 0 auto;
     margin-bottom: 10px;
 }
+
+/* 削除ボタン */
+/* .btn-danger {
+    background: url("./images/trash.png") no-repeat;
+}
+
+.btn-danger a {
+
+    background: url("./images/trash.png") no-repeat;
+    display: block;
+}
+
+
+.btn-danger a:hover {
+    background-image: url("./images/trash.png");
+} */

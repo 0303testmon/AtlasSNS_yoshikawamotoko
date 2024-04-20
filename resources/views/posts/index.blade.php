@@ -33,8 +33,9 @@
         </div>
       </td>
       {{-- 削除 --}}
-      <td><a class="btn btn-danger" href="" post_id="{{ $list->id }}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')">
-        <img src="./images/trash.png" alt="削除"></a></td>
+      <td><a class="btn-danger" href="/post/{{ $list->id }}/delete" post_id="{{ $list->id }}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')">
+        <img src="./images/trash.png" width="100" height="60" alt="削除" onmouseover="this.src='./images/trash-h.png'" onmouseout="this.src='./images/trash.png'">
+      </a></td>
     </tr>
       <br>
       <hr>

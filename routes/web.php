@@ -72,5 +72,5 @@ Route::post('/postcreate','PostsController@postCreate');
 // 投稿更新機能
 Route::post('/post/update','PostsController@postUpdate');
 
-// 投稿削除機能
-Route::post('/post/delete','PostsController@postDelete');
+// 投稿削除機能 削除はget送信
+Route::get('/post/{id}/delete','PostsController@postDelete');
