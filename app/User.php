@@ -28,6 +28,13 @@ class User extends Authenticatable
     ];
 
 
+        //リレーション定義を追加
+    //「１対多」の「1」側 → メソッド名は単数形でbelongsToを使う
+    public function follow(){
+        return $this->belongsTo('App\Follow');
+    }
+
+
     //フォローしてるかどうか
     public function isFollowing(Int $user_id){
 

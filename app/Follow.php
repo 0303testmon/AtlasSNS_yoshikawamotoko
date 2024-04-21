@@ -9,9 +9,10 @@ class Follow extends Model
 {
 
     // リレーションの定義
-// public function follows(){
-//   return $this->hasMany('App/Follow');
-// }
+    //「１対多」の「多」側 → メソッド名は複数形でhasManyを使う
+public function users(){
+  return $this->hasMany('App/User');
+}
 
 // フォロー数
 public function follows(){
