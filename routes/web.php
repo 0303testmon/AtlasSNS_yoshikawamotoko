@@ -74,3 +74,6 @@ Route::post('/post/update','PostsController@postUpdate');
 
 // 投稿削除機能 削除はget送信
 Route::get('/post/{id}/delete','PostsController@postDelete');
+
+//プロフィール編集機能
+Route::post('/profile/update','UsersController@updateProfile');
