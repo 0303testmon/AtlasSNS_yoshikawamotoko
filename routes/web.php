@@ -77,3 +77,6 @@ Route::get('/post/{id}/delete','PostsController@postDelete');
 
 //プロフィール編集機能
 Route::post('/profile/update','UsersController@updateProfile');
+
+//フォローボタン設置
+Route::get('/search/{id}/following','FollowsController@following');

@@ -39,4 +39,9 @@ public function followers(){
     return $this->belongsToMany(User::class,'followers','followed_id','following_id');
 }
 
+//フォローする・解除するボタン設置
+public function following(Request $request){
+    return back();
+}
+
 }

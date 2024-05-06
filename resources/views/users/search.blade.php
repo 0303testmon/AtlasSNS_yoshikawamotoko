@@ -17,9 +17,14 @@
             @foreach ($users as $user)
             <tr>
                 <td>{{ $user->images }}</td>
+            </tr>
+            <tr>
                 <td>{{ $user->username }}</td>
                 {{-- <td>{{ $user->follow->following_id }}</td> --}}
-
+            </tr>
+            <tr>
+            <td><a class="btn btn-following" href="/search/{{$user->id}}/following">フォローする</a></td>
+            <td><a class="btn btn-followed" href="/search/{{$user->id}}/followed">フォロー解除</a></td>
             </tr>
             @endforeach
         </table>
