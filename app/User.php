@@ -46,4 +46,13 @@ class User extends Authenticatable
 
         return (boolean) $this->followers()->where('following_id',$user_id)->first(['follows.id']);
     }
+
+    //フォローボタン設置・解除
+    public function follows(){
+        return $this->belongsToMany('App\User', 'follows', 'following_id', 'followed_id');
+    }
+
+    public function follower(){
+        return $this->belongsToMany('App\User', 'follows', 'followed_id', 'following_id');
+    }
 }

@@ -11,24 +11,29 @@
 </form>
 <hr>
 
-    <div class="usercontainer">
-        <table>
-
-            @foreach ($users as $user)
+{{-- 検索ワードを表示 --}}
+@foreach($users as $user)
+{{-- 自分以外のユーザーを表示 --}}
+@if(isset($user)and!(Auth::user()==$user))
             <tr>
-                <td>{{ $user->images }}</td>
-            </tr>
-            <tr>
-                <td>{{ $user->username }}</td>
+              <td><img src="{{ $user->images }}" alt="ユーザアイコン"></td>
+              <td>{{ $user->username }}</td>
                 {{-- <td>{{ $user->follow->following_id }}</td> --}}
             </tr>
-            <tr>
-            <td><a class="btn btn-following" href="/search/{{$user->id}}/following">フォローする</a></td>
-            <td><a class="btn btn-followed" href="/search/{{$user->id}}/followed">フォロー解除</a></td>
-            </tr>
-            @endforeach
-        </table>
-    </div>
+@endif
+
+<form action="{{ route('follows.follow') }}" method="POST">
+@csrf
+<input type="hidden" name="user_id" value="{{ $user->username }}">
+<button type="submit" class="btn-primary">
+@if(auth()->user()->isFollowing($user->id))
+<a href="{{ route('unfollow', ['userId' => $user->id]) }}" class="btn unfollow_btn" >フォロー解除</a>
+@else
+<a href="{{ route('follow', ['userId' => $user->id]) }}" class="btn follow_btn" >フォローする</a>
+@endif
+</button>
+</form>
 
 
+@endforeach
 @endsection

@@ -59,8 +59,8 @@ Route::post('/register', 'Auth\RegisterController@register');
 });
 
 //フォロー、フォロワー表示
-Route::get('/follow-list','FollowsController@follows');
-Route::get('/follower-list','FollowsController@followers');
+Route::get('/follow-list','FollowsController@followList')->middleware('auth');
+Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
 
 
 //検索ページ
@@ -78,5 +78,8 @@ Route::get('/post/{id}/delete','PostsController@postDelete');
 //プロフィール編集機能
 Route::post('/profile/update','UsersController@updateProfile');
 
-//フォローボタン設置
-Route::get('/search/{id}/following','FollowsController@following');
+//フォロー解除
+Route::post('/unfollow','FollowsController@unfollow')->name('follows.unfollow');
+
+//フォローする
+Route::post('/follow','FollowsController@follow')->name('follows.follow');
