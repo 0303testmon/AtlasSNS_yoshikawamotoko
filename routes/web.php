@@ -79,7 +79,7 @@ Route::get('/post/{id}/delete','PostsController@postDelete');
 Route::post('/profile/update','UsersController@updateProfile');
 
 //フォロー解除
-Route::post('/unfollow','FollowsController@unfollow')->name('follows.unfollow');
+Route::post('/unfollow','FollowsController@unfollow')->name('unfollow');
 
 //フォローする
-Route::post('/follow','FollowsController@follow')->name('follows.follow');
+Route::post('/follow','FollowsController@follow')->name('follow');

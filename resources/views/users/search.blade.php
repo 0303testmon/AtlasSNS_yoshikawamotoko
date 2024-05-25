@@ -22,17 +22,18 @@
             </tr>
 @endif
 
-<form action="{{ route('follows.follow') }}" method="POST">
-@csrf
+
 <input type="hidden" name="user_id" value="{{ $user->username }}">
 <button type="submit" class="btn-primary">
-@if(auth()->user()->isFollowing($user->id))
-<a href="{{ route('unfollow', ['userId' => $user->id]) }}" class="btn unfollow_btn" >フォロー解除</a>
-@else
-<a href="{{ route('follow', ['userId' => $user->id]) }}" class="btn follow_btn" >フォローする</a>
-@endif
+  @if(auth()->user()->isFollowing($user->id))
+  <a href="{{ route('unfollow', ['userId' => $user->id]) }}" class="btn unfollow_btn">フォロー解除</a>
+  @else
+  <a href="{{ route('follow', ['userId' => $user->id]) }}" class="btn follow_btn">フォローする</a>
+  @endif
 </button>
-</form>
+<br>
+
+
 
 
 @endforeach
