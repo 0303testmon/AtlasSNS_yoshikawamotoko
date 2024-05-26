@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use User;
+use App\User;
+use App\Follow;
 use Auth;
 
 class FollowsController extends Controller

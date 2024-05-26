@@ -8,6 +8,11 @@ use User;
 class Follow extends Model
 {
 
+    //引数を変えますよ宣言
+    protected $fillable =[
+        'following_id',
+        'followed_id'
+    ];
     // リレーションの定義
     //「１対多」の「多」側 → メソッド名は複数形でhasManyを使う
 public function users(){
@@ -33,9 +38,6 @@ public function unfollow(User $data){
     $this->followings()->detach($data->id);
 }
 
-//フォローしているか判断する
-public function inFollowing(User $data){
-    return $this->Following()->where('following_id',$data->id)->exists();
-}
+
 
 }
