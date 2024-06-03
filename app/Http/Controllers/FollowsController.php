@@ -6,19 +6,31 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Follow;
 use Auth;
+use App\Post;
 
 class FollowsController extends Controller
 {
     //
     public function followList(){
-
-    //     $following_id = Auth::user()->pluck('followed_id');
-    //     $posts = Post::with('user')->whereIn('user_id', $following_id)->latest()->get();
-    //     return view('follows.followList', ['follows' => $follows,'posts' => $posts]);
-        return view('follows.followList');
+        //followsテーブルのレコードを取得
+        $following_id = Auth::user()->follows()->pluck('following_id');
+        //フォローしているユーザのID取得
+        $following_users = User::orderBy('updated_at', 'desc')->whereIn('id', $following_id)->get();
+        //userテーブルのuser_idとフォローしているユーザIDが一致している投稿を取得
+        $posts = Post::orderBy('updated_at', 'desc')->with('user')->whereIn('user_id', $following_id)->get();
+        //フォローしているユーザーのIDをもとに投稿内容を取得
+        return view('follows.followList', compact('following_users', 'posts'));
     }
+
     public function followerList(){
-        return view('follows.followerList');
+        //followsテーブルのレコードを取得
+        $followed_id = Auth::user()->follows()->pluck('followed_id');
+        //フォローされてるユーザのID取得
+        $followed_users = User::orderBy('updated_at', 'desc')->whereIn('id', $followed_id)->get();
+        //userテーブルのuser_idとフォローしているユーザIDが一致している投稿を取得
+        $posts = Post::orderBy('updated_at', 'desc')->with('user')->whereIn('user_id', $followed_id)->get();
+        //フォローされているユーザーのIDをもとに投稿内容を取得
+        return view('follows.followerList', compact('followed_users', 'posts'));
     }
 
 
