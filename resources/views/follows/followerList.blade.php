@@ -11,7 +11,7 @@
   @if($followed_user->images == "dawn.png")
   <img src="/images/icon1.png">
   @else
-  <img src=" {{ asset('storage/'.$followed_user->images)}}">
+  <img src=" {{ asset('images/'.$followed_user->images)}}">
   @endif
 </div>
 @endforeach
@@ -19,6 +19,7 @@
 
 {{-- フォロワーリスト --}}
 @foreach($posts as $post)
+  {{-- dd($post); --}}
     <p>名前：{{ $post->user->username }}</p>
     <p>投稿内容：{{ $post->post }}</p>
     <p>{{ $post->update_at }}</p>

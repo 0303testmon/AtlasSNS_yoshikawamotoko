@@ -15,10 +15,12 @@ class FollowsController extends Controller
         //followsテーブルのレコードを取得
         $following_id = Auth::user()->follows()->pluck('following_id');
         //フォローしているユーザのID取得
-        $following_users = User::orderBy('updated_at', 'desc')->whereIn('id', $following_id)->get();
+        $following_users = User::whereIn('id', $following_id)->orderBy('updated_at', 'desc')->get();
         //userテーブルのuser_idとフォローしているユーザIDが一致している投稿を取得
-        $posts = Post::orderBy('updated_at', 'desc')->with('user')->whereIn('user_id', $following_id)->get();
+        //  dd($following_id, $following_users);
+        $posts = Post::whereIn('user_id', $following_id)->orderBy('updated_at', 'desc')->get();
         //フォローしているユーザーのIDをもとに投稿内容を取得
+        // dd($posts);
         return view('follows.followList', compact('following_users', 'posts'));
     }
 
@@ -26,10 +28,12 @@ class FollowsController extends Controller
         //followsテーブルのレコードを取得
         $followed_id = Auth::user()->follows()->pluck('followed_id');
         //フォローされてるユーザのID取得
-        $followed_users = User::orderBy('updated_at', 'desc')->whereIn('id', $followed_id)->get();
+        $followed_users = User::whereIn('id', $followed_id)->orderBy('updated_at', 'desc')->get();
         //userテーブルのuser_idとフォローしているユーザIDが一致している投稿を取得
-        $posts = Post::orderBy('updated_at', 'desc')->with('user')->whereIn('user_id', $followed_id)->get();
+        // dd($followed_id, $followed_users);
+        $posts = Post::whereIn('user_id', $followed_id)->orderBy('updated_at', 'desc')->get();
         //フォローされているユーザーのIDをもとに投稿内容を取得
+        // dd($posts);
         return view('follows.followerList', compact('followed_users', 'posts'));
     }
 

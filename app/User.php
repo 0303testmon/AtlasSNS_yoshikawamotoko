@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Post;
 
 class User extends Authenticatable
 {
@@ -54,5 +55,11 @@ class User extends Authenticatable
 
     public function follower(){
         return $this->belongsToMany('App\User', 'follows', 'followed_id', 'following_id');
+    }
+
+    // リレーションの定義
+    //「１対多」の「多」側 → メソッド名は複数形でhasManyを使う
+    public function posts(){
+    return $this->hasMany('App\Post');
     }
 }
