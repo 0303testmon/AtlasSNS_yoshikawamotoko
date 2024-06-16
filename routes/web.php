@@ -83,3 +83,7 @@ Route::get('/unfollow/{userId}/','FollowsController@unfollow')->name('unfollow')
 
 //フォローする
 Route::get('/follow/{userId}/','FollowsController@follow')->name('follow');
+
+//フォロー数フォロワー数表示
+// Route::get('/top','FollowsController@follows');
+// Route::get('/top','FollowsController@followers');
