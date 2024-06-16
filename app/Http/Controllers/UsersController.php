@@ -24,7 +24,7 @@ class UsersController extends Controller
             $users = User::all();
         }
         // 3つ目の処理
-        return view('users.search',['users'=>$users]);
+        return view('users.search',['users'=>$users, 'keyword'=>$keyword]);
     }
 
     //プロフィール編集機能

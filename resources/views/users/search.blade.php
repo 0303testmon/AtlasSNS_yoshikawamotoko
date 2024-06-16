@@ -3,23 +3,23 @@
 @section('content')
 
 
-{{-- <form method="get" action="#" class="search_container">
-  <input type="text" size="25" placeholder="ユーザー名">
-  <button type="submit">
-  <img src="images/search.png" width="50px" height="50px">
-  </button>
-</form> --}}
+
         <form action="/search" method="get">
-           @csrf
-           <input type="text" name="keyword" class="form" placeholder="ユーザー名">
-           {{-- <button type="submit" class="btn btn-success">検索</button> --}}
-             <button type="submit">
-  <img src="images/search.png" width="50px" height="50px">
-  </button>
+          @csrf
+          <input type="text" name="keyword" class="form" placeholder="ユーザー名">
+          <button type="submit">
+              <img src="images/search.png" width="50px" height="50px">
+          </button>
         </form>
-<hr>
+
 
 {{-- 検索ワードを表示 --}}
+@if(!empty($keyword))
+<p>検索ワード：{{$keyword}}</p>
+@endif
+
+<hr>
+
 @foreach($users as $user)
 {{-- 自分以外のユーザーを表示 --}}
 @if(isset($user)and!(Auth::user()==$user))
