@@ -12,7 +12,7 @@ class FollowsController extends Controller
 {
     //
     public function followList(){
-        //followsテーブルのレコードを取得
+        //followsテーブルのレコードを取得 最終的に取り出したいカラムをpluckする
         $following_id = Auth::user()->follows()->pluck('followed_id');
         //フォローしているユーザのID取得
         $following_users = User::whereIn('id', $following_id)->orderBy('updated_at', 'desc')->get();
