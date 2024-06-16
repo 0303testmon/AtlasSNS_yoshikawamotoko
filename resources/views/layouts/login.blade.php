@@ -88,7 +88,7 @@
                 <p class="btn"><a href="follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
-                <p>{{Auth::user()->follower()->count()}}名</p>
+                <p>{{Auth::user()->followers()->count()}}名</p>
                 </div>
                 <p class="btn"><a href="follower-list">フォロワーリスト</a></p>
             </div>

@@ -13,7 +13,7 @@ class FollowsController extends Controller
     //
     public function followList(){
         //followsテーブルのレコードを取得
-        $following_id = Auth::user()->follows()->pluck('following_id');
+        $following_id = Auth::user()->follows()->pluck('followed_id');
         //フォローしているユーザのID取得
         $following_users = User::whereIn('id', $following_id)->orderBy('updated_at', 'desc')->get();
         //userテーブルのuser_idとフォローしているユーザIDが一致している投稿を取得
@@ -26,7 +26,7 @@ class FollowsController extends Controller
 
     public function followerList(){
         //followsテーブルのレコードを取得
-        $followed_id = Auth::user()->follows()->pluck('followed_id');
+        $followed_id = Auth::user()->followers()->pluck('following_id');
         //フォローされてるユーザのID取得
         $followed_users = User::whereIn('id', $followed_id)->orderBy('updated_at', 'desc')->get();
         //userテーブルのuser_idとフォローしているユーザIDが一致している投稿を取得
