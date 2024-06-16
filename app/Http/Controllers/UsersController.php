@@ -11,9 +11,19 @@ class UsersController extends Controller
     public function profile(){
         return view('users.profile');
     }
-    public function search(){
-
-        $users = User::get(); //Userモデル（usersテーブル）からレコード情報を取得
+    //検索機能
+    public function search(Request $request)
+    {
+        // 1つ目の処理
+        $keyword = $request->input('keyword');
+        // 2つ目の処理
+        if(!empty($keyword)){
+            //Userモデル（usersテーブル）からレコード情報を取得
+            $users = User::where('username','like', '%'.$keyword.'%')->get();
+        }else{
+            $users = User::all();
+        }
+        // 3つ目の処理
         return view('users.search',['users'=>$users]);
     }
 

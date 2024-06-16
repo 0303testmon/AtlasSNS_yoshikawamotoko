@@ -3,12 +3,20 @@
 @section('content')
 
 
-<form method="get" action="#" class="search_container">
+{{-- <form method="get" action="#" class="search_container">
   <input type="text" size="25" placeholder="ユーザー名">
   <button type="submit">
   <img src="images/search.png" width="50px" height="50px">
   </button>
-</form>
+</form> --}}
+        <form action="/search" method="get">
+           @csrf
+           <input type="text" name="keyword" class="form" placeholder="ユーザー名">
+           {{-- <button type="submit" class="btn btn-success">検索</button> --}}
+             <button type="submit">
+  <img src="images/search.png" width="50px" height="50px">
+  </button>
+        </form>
 <hr>
 
 {{-- 検索ワードを表示 --}}
@@ -20,7 +28,7 @@
               <td>{{ $user->username }}</td>
                 {{-- <td>{{ $user->follow->following_id }}</td> --}}
             </tr>
-@endif
+
 
 
 <input type="hidden" name="user_id" value="{{ $user->username }}">
@@ -32,7 +40,7 @@
   @endif
 </button>
 <br>
-
+@endif
 
 
 
