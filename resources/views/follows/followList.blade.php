@@ -9,9 +9,9 @@
 {{-- $userから$following_userを抽出 --}}
 <div>
   @if($following_user->images == "dawn.png")
-  <img src="/images/icon1.png">
+  <a href="{{URL::to('/otherprofile')}}"><img src="/images/icon1.png"></a>
   @else
-  <img src=" {{ asset('images/'.$following_user->images)}}">
+  <a href="{{URL::to('/otherprofile')}}"><img src=" {{ asset('images/'.$following_user->images)}}"></a>
   @endif
 </div>
 @endforeach
@@ -20,9 +20,11 @@
 {{-- フォローリスト --}}
 @foreach($posts as $post)
   {{-- dd($post); --}}
+    <a href="{{URL::to('/otherprofile')}}"><img src=" {{ asset('images/'.$following_user->images)}}"></a>
     <p>名前：{{ $post->user->username }}</p>
     <p>投稿内容：{{ $post->post }}</p>
     <p>{{ $post->update_at }}</p>
+    <hr>
 @endforeach
 
 @endsection

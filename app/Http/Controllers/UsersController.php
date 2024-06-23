@@ -11,6 +11,9 @@ class UsersController extends Controller
     public function profile(){
         return view('users.profile');
     }
+    public function otherprofile(){
+        return view('users.otherprofile');
+    }
     //検索機能
     public function search(Request $request)
     {

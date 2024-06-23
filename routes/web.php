@@ -83,3 +83,6 @@ Route::get('/unfollow/{userId}/','FollowsController@unfollow')->name('unfollow')
 
 //フォローする
 Route::get('/follow/{userId}/','FollowsController@follow')->name('follow');
+
+//相手ユーザーのプロフィール表示
+Route::get('/otherprofile','UsersController@otherprofile');

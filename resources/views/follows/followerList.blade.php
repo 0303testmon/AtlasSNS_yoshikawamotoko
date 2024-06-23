@@ -9,9 +9,9 @@
 {{-- $userから$followed_userを抽出 --}}
 <div>
   @if($followed_user->images == "dawn.png")
-  <img src="/images/icon1.png">
+  <a href="{{URL::to('/otherprofile')}}"><img src="/images/icon1.png"></a>
   @else
-  <img src=" {{ asset('images/'.$followed_user->images)}}">
+  <a href="{{URL::to('/otherprofile')}}"><img src=" {{ asset('images/'.$followed_user->images)}}"></a>
   @endif
 </div>
 @endforeach
@@ -20,9 +20,11 @@
 {{-- フォロワーリスト --}}
 @foreach($posts as $post)
   {{-- dd($post); --}}
+    <a href="{{URL::to('/otherprofile')}}"><img src=" {{ asset('images/'.$followed_user->images)}}"></a>
     <p>名前：{{ $post->user->username }}</p>
     <p>投稿内容：{{ $post->post }}</p>
     <p>{{ $post->update_at }}</p>
+    <hr>
 @endforeach
 
 @endsection
