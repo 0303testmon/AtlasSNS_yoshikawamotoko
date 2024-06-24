@@ -11,8 +11,12 @@ class UsersController extends Controller
     public function profile(){
         return view('users.profile');
     }
-    public function otherprofile(){
-        return view('users.otherprofile');
+    public function otherprofile($id){
+
+        //特定のユーザをDBから抽出
+        $user = User::findOrFail($id);
+        //ユーザ情報をビューに渡す
+        return view('users.otherprofile', compact('user'));
     }
     //検索機能
     public function search(Request $request)

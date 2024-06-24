@@ -85,4 +85,4 @@ Route::get('/unfollow/{userId}/','FollowsController@unfollow')->name('unfollow')
 Route::get('/follow/{userId}/','FollowsController@follow')->name('follow');
 
 //相手ユーザーのプロフィール表示
-Route::get('/otherprofile','UsersController@otherprofile');
+Route::get('/otherprofile/{id}','UsersController@otherprofile')->name('therprofile');

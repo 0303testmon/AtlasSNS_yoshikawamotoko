@@ -20,7 +20,7 @@
 {{-- フォロワーリスト --}}
 @foreach($posts as $post)
   {{-- dd($post); --}}
-    <a href="{{URL::to('/otherprofile')}}"><img src=" {{ asset('images/'.$followed_user->images)}}"></a>
+    <a href="{{URL::to('/otherprofile/{id}')}}"><img src=" {{ asset('images/'.$followed_user->images)}}"></a>
     <p>名前：{{ $post->user->username }}</p>
     <p>投稿内容：{{ $post->post }}</p>
     <p>{{ $post->update_at }}</p>
