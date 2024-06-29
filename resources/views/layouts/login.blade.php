@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <!--IEブラウザ対策-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
@@ -21,37 +22,40 @@
 
 
     <!-- アコーディオンメニューcssとjavascript　(bootstrap) -->
-      <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+      </script> -->
 
 </head>
+
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+            <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p>{{Auth::user()->username}}さん<img src="images/icon1.png"></p>
-                <div>
+                    <p>{{ Auth::user()->username }}さん<img src="/images/{{ Auth::user()->images }}"></p>
+                    <div>
 
-                <!--アコーディオンメニュー矢印 -->
-                <button type="button" class="menu-btn">
-                <span class="inn"></span>
-                </button>
+                        <!--アコーディオンメニュー矢印 -->
+                        <button type="button" class="menu-btn">
+                            <span class="inn"></span>
+                        </button>
 
-        <nav class="menu">
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
-        </nav>
-            </div>
-        </div>
+                        <nav class="menu">
+                            <ul>
+                                <li><a href="/top">ホーム</a></li>
+                                <li><a href="/profile">プロフィール</a></li>
+                                <li><a href="/logout">ログアウト</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
     </header>
 
     <!--アコーディオンメニュー -->
-        <!-- <nav class="navbar bg-body-secondary" data-bs-theme="dark">
+    <!-- <nav class="navbar bg-body-secondary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/top"><img src="images/atlas.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
@@ -77,23 +81,28 @@
     <div id="row">
         <div id="container">
             @yield('content')
-        </div >
+        </div>
         <div id="side-bar">
             <div id="confirm">
-                <p>{{Auth::user()->username}}さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
                 <div>
-                <p>フォロー数</p>
-                <p>{{Auth::user()->follows()->count()}}人</p>
+                    <p>フォロー数　　　{{ Auth::user()->follows()->count() }}人</p>
                 </div>
-                <a href="follow-list" class="btn btn-primary">フォローリスト</a>
+                <div class="follow_list">
+                    <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
+                </div>
+                <br>
                 <div>
-                <p>フォロワー数</p>
-                <p>{{Auth::user()->followers()->count()}}人</p>
+                    <p>フォロワー数　　　 {{ Auth::user()->followers()->count() }}人</p>
                 </div>
-                <a href="follower-list" class="btn btn-primary">フォロワーリスト</a>
+                <div class="follow_list">
+                    <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
+                </div>
             </div>
             <hr>
-            <a href="search" class="btn btn-primary">ユーザー検索</a>
+            <div class="search_list">
+                <a href="/search" class="btn btn-primary">ユーザー検索</a>
+            </div>
         </div>
     </div>
     <footer>
@@ -108,9 +117,14 @@
     <!-- <script src="../../../public/js/script.js"></script> -->
     <script src="{{ asset('js/script.js') }}"></script>
     <!-- BootstrapのCSS読み込み -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"><!-- jQuery読み込み -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- jQuery読み込み -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrapのjs読み込み -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>

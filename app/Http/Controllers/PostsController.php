@@ -11,7 +11,8 @@ class PostsController extends Controller
 {
     //Postレコードから情報を取得
     public function index(){
-        $list=Post::get();
+        $user_id=Auth::user()->id;
+        $list=Post::where('user_id', $user_id)->get();
         //bladeへ返す際にデータを送る
         return view('posts.index',['list'=>$list]);
     }

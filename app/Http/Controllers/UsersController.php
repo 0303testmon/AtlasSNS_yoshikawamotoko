@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
 
 class UsersController extends Controller
 {
@@ -15,8 +16,10 @@ class UsersController extends Controller
 
         //特定のユーザをDBから抽出
         $user = User::findOrFail($id);
+        $posts = Post::where('user_id', $id)->orderBy('updated_at', 'desc')->get();
+        // dd($posts);
         //ユーザ情報をビューに渡す
-        return view('users.otherprofile', compact('user'));
+        return view('users.otherprofile', compact('user','posts'));
     }
     //検索機能
     public function search(Request $request)
@@ -36,32 +39,36 @@ class UsersController extends Controller
 
     //プロフィール編集機能
     public function updateProfile(Request $request){
-
+        $user = User::find($request->id);
 
              //バリデーション
-        $request->validate([
-            'username' => 'required | between:2,12',
-            'mail' => 'required | between:5,40 | unique:users',
-            'password' => 'required | alpha_dash | between:8,20 | confirmed' ,
-            'bio' => 'between:0,150',
-            'file' => 'file|mimes:jpg,jpeg,png',
-        ]);
+            $request->validate([
+                'username' => 'required | between:2,12',
+                'mail' => 'required | between:5,40 | unique:users,mail,'.$user->mail.',mail',
+                'password' => 'required | alpha_dash | between:8,20 | confirmed',
+                'bio' => 'between:0,150',
+                'file' => 'file|mimes:jpg,jpeg,png',
+            ]);
 
-    $id = $request->input('id');
-    $username = $request->input('username');
-    $mail = $request->input('mail');
-    $password = $request->input('password');
-    $bio = $request->input('bio');
+            $id = $request->input('id');
+            $username = $request->input('username');
+            $mail = $request->input('mail');
+            $password = $request->input('password');
+            $bio = $request->input('bio');
+            $image = $request->input('images');
 
+            // dd($image);
 
-    User::where('id', $id)->update([
-        'username' => $username,
-        'mail' => $mail,
-        'password' => $password,
-        // 'password' => Hash::make($request->password),//ハッシュ化
-        'bio' => $bio,
-    ]);
+            User::where('id', $id)->update([
+                'username' => $username,
+                'mail' => $mail,
+                'password' => bcrypt($password),
+                // 'password' => Hash::make($request->password),//ハッシュ化
+                'bio' => $bio,
+                'images' => $image,
 
-    return redirect('/top');
-}
+            ]);
+
+            return redirect('/top');
+        }
 }

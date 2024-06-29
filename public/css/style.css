@@ -24,6 +24,14 @@ header {
     border-left: 1px solid #727272;
 }
 
+.follow_list {
+    text-align: right;
+}
+
+.search_list {
+    text-align: center;
+}
+
 /* アコーディオンメニュー */
 .menu-btn {
     width: 60px;
@@ -72,13 +80,13 @@ header {
 .menu {
     position: absolute;
     top: 60px;
-    width: 100%;
+    right: 0px;
+    width: 20%;
     background-color: #fff;
     opacity: 0;
     transition: .3s ease-in-out;
     pointer-events: none;
     transform: translateY(-30px);
-
 
     ul {
         border-bottom: 1px solid #000;
@@ -183,6 +191,7 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     overflow-y: scroll;
+    border-radius: 30px;
 }
 
 .modal_post {
@@ -203,6 +212,14 @@ header {
     height: 50px;
     margin: 0 auto;
     margin-bottom: 10px;
+    display: block;
+    margin: auto;
+    background-color: #fff;
+    border: none;
+}
+
+.tr_btn {
+    text-align: left;
 }
 
 /* 削除ボタン */
