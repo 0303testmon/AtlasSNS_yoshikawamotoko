@@ -4,6 +4,12 @@
     <img src=" {{ asset('images/' . $user->images) }}">
     <p>ユーザー名　　　　　{{ $user->username }}</p>
     <p>自己紹介　　　　　{{ $user->bio }}</p>
+    <input type="hidden" name="user_id" value="{{ $user->username }}">
+    @if (auth()->user()->isFollowing($user->id))
+        <a href="{{ route('unfollow', ['userId' => $user->id]) }}" class="btn btn-danger">フォロー解除</a>
+    @else
+        <a href="{{ route('follow', ['userId' => $user->id]) }}" class="btn btn-primary">フォローする</a>
+    @endif
     <hr>
     {{-- {{dd($posts)}} --}}
     @foreach ($posts as $post)

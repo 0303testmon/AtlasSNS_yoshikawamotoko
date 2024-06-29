@@ -32,6 +32,8 @@ header {
     text-align: center;
 }
 
+
+
 /* アコーディオンメニュー */
 .menu-btn {
     width: 60px;
@@ -130,6 +132,7 @@ header {
     border: none;
     /* 右寄せにする */
     margin-left: 500px;
+    background-color: #fff;
 }
 
 .post-content {
@@ -155,6 +158,11 @@ header {
 .search_container button[type="submit"] {
     border: none;
 
+}
+
+.search_btn {
+    border: none;
+    background-color: #fff;
 }
 
 /* 投稿編集 */
