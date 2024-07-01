@@ -27,20 +27,25 @@
                             <td>{{ $list->user_id }}</td>
                             <td>{{ $list->post }}</td>
                             {{-- 編集 --}}
-                            <td>
+                            <div class="d-flex justify-content-end">
+                                {{-- <td> --}}
                                 <div class="contents">
                                     <a class="js-modal-open" href="" post="{{ $list->post }}"
                                         post_id="{{ $list->id }}">
                                         <img src="./images/edit.png" alt="編集"></a>
                                 </div>
-                            </td>
-                            {{-- 削除 --}}
-                            <td><a href="/post/{{ $list->id }}/delete" post_id="{{ $list->id }}/delete"
-                                    onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')">
-                                    <img src="./images/trash.png" width="100" height="100" alt="削除"
-                                        onmouseover="this.src='./images/trash-h.png'"
-                                        onmouseout="this.src='./images/trash.png'"></a>
-                            </td>
+                                {{-- </td> --}}
+                                {{-- 削除 --}}
+                                {{-- <td> --}}
+                                <div>
+                                    <a href="/post/{{ $list->id }}/delete" post_id="{{ $list->id }}/delete"
+                                        onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')">
+                                        <img src="./images/trash.png" width="100" height="100" alt="削除"
+                                            onmouseover="this.src='./images/trash-h.png'"
+                                            onmouseout="this.src='./images/trash.png'"></a>
+                                </div>
+                                {{-- </td> --}}
+                            </div>
                         </tr>
                     </table>
                     <br>

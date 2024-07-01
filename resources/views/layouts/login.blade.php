@@ -32,26 +32,31 @@
 <body>
     <header>
         <div id = "head">
-            <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>{{ Auth::user()->username }}さん<img src="/images/{{ Auth::user()->images }}"></p>
-                    <div>
-
-                        <!--アコーディオンメニュー矢印 -->
-                        <button type="button" class="menu-btn">
-                            <span class="inn"></span>
-                        </button>
-
-                        <nav class="menu">
-                            <ul>
-                                <li><a href="/top">ホーム</a></li>
-                                <li><a href="/profile">プロフィール</a></li>
-                                <li><a href="/logout">ログアウト</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+            <div class="position-relative">
+                {{-- <div class="position-absolute top-0 start-0"> --}}
+                <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
+                {{-- </div> --}}
+                <div class="position-absolute top-0 end-50">
+                    <p>{{ Auth::user()->username }}さん</p>
                 </div>
+                <div class="position-absolute top-0 end-0">
+                    <!--アコーディオンメニュー矢印 -->
+                    <button type="button" class="menu-btn">
+                        <span class="inn"></span>
+                    </button>
+                    <nav class="menu">
+                        <ul>
+                            <li><a href="/top">ホーム</a></li>
+                            <li><a href="/profile">プロフィール</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="position-absolute top-0 end-0">
+                    <img src="/images/{{ Auth::user()->images }}">
+                </div>
+            </div>
+        </div>
     </header>
 
     <!--アコーディオンメニュー -->
