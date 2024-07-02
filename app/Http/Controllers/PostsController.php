@@ -10,6 +10,19 @@ use Auth;
 class PostsController extends Controller
 {
     //Postレコードから情報を取得
+    // public function index(){
+    //     $user_id=Auth::user()->id;
+    //     //フォローしているIDを取得
+    //     $followed_id = Auth::user()->followers()->pluck('following_id');
+    //     //フォローされてるユーザのID取得
+    //     $followed_users = User::whereIn('id', $followed_id)->orderBy('updated_at', 'desc')->get();
+    //     //userテーブルのuser_idとフォローしているユーザIDが一致している投稿を取得
+    //     $posts = Post::whereIn('user_id', $followed_id)->orderBy('updated_at', 'desc')->get();
+    //     //自分の投稿のみ取得
+    //     $list=Post::where('user_id', $user_id)->get();
+    //     //bladeへ返す際にデータを送る
+    //     return view('posts.index',['list'=>$list],compact('following_users', 'posts'));
+    // }
     public function index(){
         $user_id=Auth::user()->id;
         //自分の投稿のみ取得
