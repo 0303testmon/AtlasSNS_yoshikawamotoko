@@ -21,36 +21,42 @@
             {{-- <textarea name="upPost" class="modal_post" value=""></textarea>
   <input type="hidden" name="Id" class="modal_id" value=""> --}}
             <div class="post-content">
-                @foreach ($list as $list)
-                    <table border="0">
-                        <tr class="tr_btn">
-                            <td>{{ $list->user_id }}</td>
-                            <td>{{ $list->post }}</td>
-                            {{-- 編集 --}}
-                            <div class="d-flex justify-content-end">
-                                {{-- <td> --}}
-                                <div class="contents">
-                                    <a class="js-modal-open" href="" post="{{ $list->post }}"
-                                        post_id="{{ $list->id }}">
-                                        <img src="./images/edit.png" alt="編集"></a>
+                <div class="container">
+                    @foreach ($list as $list)
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">{{ $list->user_id }}</div>
+                                    <div class="col">{{ $list->post }}</div>
                                 </div>
-                                {{-- </td> --}}
-                                {{-- 削除 --}}
-                                {{-- <td> --}}
-                                <div>
-                                    <a href="/post/{{ $list->id }}/delete" post_id="{{ $list->id }}/delete"
-                                        onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')">
-                                        <img src="./images/trash.png" width="100" height="100" alt="削除"
-                                            onmouseover="this.src='./images/trash-h.png'"
-                                            onmouseout="this.src='./images/trash.png'"></a>
-                                </div>
-                                {{-- </td> --}}
                             </div>
-                        </tr>
-                    </table>
-                    <br>
-                    <hr>
-                @endforeach
+                            @if (Auth::user()->id == $list->user_id)
+                                {{-- 編集 サイズ小さく、自分のだけ削除、編集 --}}
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <div class="contents">
+                                            <a class="js-modal-open" href="" post="{{ $list->post }}"
+                                                post_id="{{ $list->id }}">
+                                                <img style="height:50px;" src="./images/edit.png" alt="編集"></a>
+                                        </div>
+                                        {{-- 削除 --}}
+                                        <div>
+                                            <a href="/post/{{ $list->id }}/delete" post_id="{{ $list->id }}/delete"
+                                                onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')">
+                                                <img style="height:50px;" src="./images/trash.png" alt="削除"
+                                                    onmouseover="this.src='./images/trash-h.png'"
+                                                    onmouseout="this.src='./images/trash.png'"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="col">
+                                </div>
+                            @endif
+                        </div>
+                        <hr>
+                    @endforeach
+                </div>
 
                 {{-- モーダルの中身 --}}
                 <div class="modal js_modal">
