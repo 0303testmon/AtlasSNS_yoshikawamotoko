@@ -31,15 +31,13 @@
 
 <body>
     <header>
-        <div id = "head">
-            <div class="position-relative">
-                {{-- <div class="position-absolute top-0 start-0"> --}}
-                <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
-                {{-- </div> --}}
-                <div class="position-absolute top-0 end-50">
-                    <p>{{ Auth::user()->username }}さん</p>
-                </div>
-                <div class="position-absolute top-0 end-0">
+        <nav class="navbar" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/top"><img style="height:50px;" src="/images/atlas.png"></a>
+                <div class="d-flex">
+                    <div class="nav-item display-6">
+                        <p>{{ Auth::user()->username }}さん</p>
+                    </div>
                     <!--アコーディオンメニュー矢印 -->
                     <button type="button" class="menu-btn">
                         <span class="inn"></span>
@@ -51,37 +49,13 @@
                             <li><a href="/logout">ログアウト</a></li>
                         </ul>
                     </nav>
-                </div>
-                <div class="position-absolute top-0 end-0">
-                    <img src="/images/{{ Auth::user()->images }}">
+                    <div class="nav-item">
+                        <img src="/images/{{ Auth::user()->images }}">
+                    </div>
                 </div>
             </div>
-        </div>
+        </nav>
     </header>
-
-    <!--アコーディオンメニュー -->
-    <!-- <nav class="navbar bg-body-secondary" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/top"><img src="images/atlas.png"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="navbar-nav me-auto mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/home">ホーム</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/profile">プロフィール</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/logout">ログアウト</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
 
     <div id="row">
         <div id="container">
@@ -90,18 +64,22 @@
         <div id="side-bar">
             <div id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
-                <div>
-                    <p>フォロー数　　　{{ Auth::user()->follows()->count() }}人</p>
-                </div>
-                <div class="follow_list">
-                    <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
+                <div class="row">
+                    <div class="col">
+                        <p>フォロー数　　　{{ Auth::user()->follows()->count() }}人</p>
+                    </div>
+                    <div class="follow_list col">
+                        <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
+                    </div>
                 </div>
                 <br>
-                <div>
-                    <p>フォロワー数　　　 {{ Auth::user()->followers()->count() }}人</p>
-                </div>
-                <div class="follow_list">
-                    <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
+                <div class="row">
+                    <div class="col">
+                        <p>フォロワー数　　　 {{ Auth::user()->followers()->count() }}人</p>
+                    </div>
+                    <div class="follow_list col">
+                        <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
+                    </div>
                 </div>
             </div>
             <hr>

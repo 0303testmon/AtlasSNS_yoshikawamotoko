@@ -21,13 +21,7 @@ class PostsController extends Controller
         //bladeへ返す際にデータを送る
         return view('posts.index',['list'=>$posts]);
     }
-    // public function index(){
-    //     $user_id=Auth::user()->id;
-    //     //自分の投稿のみ取得
-    //     $list=Post::where('user_id', $user_id)->get();
-    //     //bladeへ返す際にデータを送る
-    //     return view('posts.index',['list'=>$list]);
-    // }
+
 
 
     //投稿の登録処理
