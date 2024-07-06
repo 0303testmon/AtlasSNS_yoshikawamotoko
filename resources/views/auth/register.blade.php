@@ -3,35 +3,43 @@
 @section('content')
     <!-- 適切なURLを入力してください -->
     {!! Form::open(['url' => '/register']) !!}
-
-    <h2>新規ユーザー登録</h2>
-
-    {{ Form::label('ユーザー名') }}
-    {{ Form::text('username', null, ['class' => 'input']) }}
-
-    {{ Form::label('メールアドレス') }}
-    {{ Form::text('mail', null, ['class' => 'input']) }}
-
-    {{ Form::label('パスワード') }}
-    {{ Form::password('password', null, ['class' => 'input']) }}
-
-    {{ Form::label('パスワード確認') }}
-    {{ Form::password('password_confirmation', null, ['class' => 'input']) }}
-
-    {{ Form::submit('登録') }}
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+    <div class="login-content">
+        <p>新規ユーザー登録</p>
+        <div class="login-content-komoku">
+            <div class="login-user">
+                {{ Form::label('ユーザー名') }}<br></div>
+            {{ Form::text('username', null, ['class' => 'input']) }}
+            <br>
+            <br>
+            <div class="login-mail">{{ Form::label('メールアドレス') }}<br></div>
+            {{ Form::text('mail', null, ['class' => 'input']) }}
+            <br>
+            <br>
+            <div class="login-password">{{ Form::label('パスワード') }}<br></div>
+            {{ Form::password('password', null, ['class' => 'input']) }}
+            <br>
+            <br>
+            <div class="login-password-kakunin">{{ Form::label('パスワード確認') }}<br></div>
+            {{ Form::password('password_confirmation', null, ['class' => 'input']) }}
+            <br>
+            <br>
         </div>
-    @endif
+        <input type="submit" class="btn btn-danger login-btn" value="新規登録">
+        {{-- {{ Form::submit('登録') }} --}}
+        <br><br>
 
-    <p><a href="/login">ログイン画面へ戻る</a></p>
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <br>
+        <p><a href="/login">ログイン画面へ戻る</a></p>
+    </div>
     {!! Form::close() !!}
 
 
