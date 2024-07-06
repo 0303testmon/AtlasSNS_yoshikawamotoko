@@ -29,6 +29,10 @@ header {
     border-left: 1px solid #727272;
 }
 
+.sidebar-confirm {
+    margin: 20px;
+}
+
 .follow_list {
     text-align: right;
 }
@@ -139,16 +143,36 @@ header {
     /* width: 100%; */
 }
 
+
 .post-img {
     border: none;
     /* 右寄せにする */
     margin-left: 500px;
     background-color: #fff;
+
+}
+
+.post-imges {
+    border-radius: 10px;
+    margin-top: 50px;
 }
 
 .post-content {
     padding: 20px;
     line-height: 50px;
+}
+
+.other-text {
+    text-align: left;
+    margin-right: 0;
+}
+
+.post-img-icon {
+    text-align: right;
+}
+
+.other-btn {
+    margin-top: 50px;
 }
 
 /* 検索フォーム */
@@ -174,6 +198,10 @@ header {
 .search_btn {
     border: none;
     background-color: #fff;
+}
+
+.search_img {
+    border-radius: 10px;
 }
 
 .form-keyword {
@@ -267,3 +295,11 @@ header {
 } */
 
 /* プロフィール */
+.profile-ichiran {
+    margin: 50px;
+    /* margin-left: 60px; */
+}
+
+.profile-img {
+    text-align: right;
+}

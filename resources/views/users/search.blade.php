@@ -12,14 +12,14 @@
                     <input type="text" name="keyword" class="form form-username" placeholder="ユーザー名" width="50px"
                         height="70px">
                     <button class="search_btn" type="submit">
-                        <img src="images/search.png" width="50px" height="50px">
+                        <img class="search_img" src="images/search.png" width="50px" height="50px" border-radius="10px">
                     </button>
                 </form>
             </div>
             <div class="col">
                 {{-- 検索ワードを表示 --}}
                 @if (!empty($keyword))
-                    <p class=" form-keyword">検索ワード：{{ $keyword }}</p>
+                    <p class="form-keyword">検索ワード：{{ $keyword }}</p>
                 @endif
             </div>
             <div class="col">

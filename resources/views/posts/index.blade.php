@@ -5,17 +5,32 @@
         <div class="js-modal">
             {!! Form::open(['url' => '/postcreate']) !!}
             <div>
-                <a>
-                    <img src="images/{{ Auth::user()->images }}">
-                    <p>{{ Auth::user()->username }}</p>
-                </a>
-                <div class="post-main">
-                    {{ Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}
+                <div class="container">
+                    <div class="row">
+                        <div class="col"><br></div>
+                    </div>
+                    <div class="row">
+                        {{-- <div class="col">
+                        </div> --}}
+                        <div class="col post-img-icon">
+                            <img src="images/{{ Auth::user()->images }}">
+                        </div>
+                        {{-- <p>{{ Auth::user()->username }}</p> --}}
+
+                        <div class="col-3 post-main">
+                            {{ Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="post-img">
+                                <img class="post-imges" src="images/post.png" width="50px" height="50px" alt="送信">
+                            </button>
+                        </div>
+                        <div class="col">
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="post-img">
-                    <img src="images/post.png" width="50px" height="50px" alt="送信">
-                </button>
                 {!! Form::close() !!}
+
                 <hr>
             </div>
             {{-- <textarea name="upPost" class="modal_post" value=""></textarea>
@@ -36,10 +51,9 @@
                         <div class="row">
                             <div class="col">
                                 <div class="row">
-                                    <div class="col"><img
-                                            src=" {{ asset('images/' . $list->user->images) }}">{{ $list->user->username }}
+                                    <div class="col post-img-icon"><img src=" {{ asset('images/' . $list->user->images) }}">
                                     </div>
-                                    <div class="col">{{ $list->post }}</div>
+                                    <div class="col-8">{{ $list->user->username }}<br>{{ $list->post }}</div>
                                 </div>
                             </div>
                             @if (Auth::user()->id == $list->user_id)

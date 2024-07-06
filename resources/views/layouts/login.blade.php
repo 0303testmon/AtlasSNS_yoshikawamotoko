@@ -62,7 +62,7 @@
             @yield('content')
         </div>
         <div id="side-bar">
-            <div id="confirm">
+            <div class="sidebar-confirm" id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div class="row">
                     <div class="col">
