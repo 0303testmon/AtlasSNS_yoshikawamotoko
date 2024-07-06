@@ -22,12 +22,35 @@
     @foreach ($posts as $post)
         {{-- dd($post); --}}
         {{-- {{dd($posts)}} --}}
-        <div class="position-relative m-3">
-            <a href="{{ URL::to('/otherprofile/' . $post->user_id) }}"><img
-                    src=" {{ asset('images/' . $post->user->images) }}"></a>
-            <p>名前：{{ $post->user->username }}</p>
-            <p>投稿内容：{{ $post->post }}</p>
-            <p class="position-absolute top-0 end-0 m-3">{{ $post->updated_at }}</p>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="position-relative">
+                        <div class="position-absolute top-0 end-0">{{ $post->updated_at }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <a href="{{ URL::to('/otherprofile/' . $post->user_id) }}"><img
+                                src=" {{ asset('images/' . $post->user->images) }}"></a>
+                    </div>
+                    <div class="col-8">
+                        <div class="position-relative">
+                            <div class="position-absolute start-0">
+                                <p>{{ $post->user->username }}</p>
+                            </div>
+                            <br>
+                            <div class="position-absolute start-0">
+                                <p>{{ $post->post }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+            </div>
         </div>
         <hr>
     @endforeach

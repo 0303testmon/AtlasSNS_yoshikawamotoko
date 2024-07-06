@@ -25,15 +25,27 @@
                     @foreach ($list as $list)
                         <div class="row">
                             <div class="col">
+                                <div class="position-relative">
+                                    <div class="position-absolute top-0 end-0">{{ $list->updated_at }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><br></div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
                                 <div class="row">
-                                    <div class="col">{{ $list->user_id }}</div>
+                                    <div class="col"><img
+                                            src=" {{ asset('images/' . $list->user->images) }}">{{ $list->user->username }}
+                                    </div>
                                     <div class="col">{{ $list->post }}</div>
                                 </div>
                             </div>
                             @if (Auth::user()->id == $list->user_id)
                                 {{-- 編集 サイズ小さく、自分のだけ削除、編集 --}}
                                 <div class="col">
-                                    <div class="d-flex justify-content-end">
+                                    <div class="d-flex justify-content-end buttom-0">
                                         <div class="contents">
                                             <a class="js-modal-open" href="" post="{{ $list->post }}"
                                                 post_id="{{ $list->id }}">
@@ -53,6 +65,9 @@
                                 <div class="col">
                                 </div>
                             @endif
+                        </div>
+                        <div class="row">
+                            <div class="col"><br></div>
                         </div>
                         <hr>
                     @endforeach

@@ -33,9 +33,9 @@
     <header>
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/top"><img style="height:50px;" src="/images/atlas.png"></a>
+                <a class="navbar-brand" href="/top"><img src="/images/atlas.png"></a>
                 <div class="d-flex">
-                    <div class="nav-item display-6">
+                    <div class="nav-item display-9">
                         <p>{{ Auth::user()->username }}さん</p>
                     </div>
                     <!--アコーディオンメニュー矢印 -->
@@ -68,8 +68,10 @@
                     <div class="col">
                         <p>フォロー数　　　{{ Auth::user()->follows()->count() }}人</p>
                     </div>
-                    <div class="follow_list col">
-                        <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
+                    <div class="row">
+                        <div class="follow_list col">
+                            <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
+                        </div>
                     </div>
                 </div>
                 <br>
@@ -77,8 +79,10 @@
                     <div class="col">
                         <p>フォロワー数　　　 {{ Auth::user()->followers()->count() }}人</p>
                     </div>
-                    <div class="follow_list col">
-                        <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
+                    <div class="row">
+                        <div class="follow_list col">
+                            <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
+                        </div>
                     </div>
                 </div>
             </div>
