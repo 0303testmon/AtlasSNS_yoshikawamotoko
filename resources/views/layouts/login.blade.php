@@ -33,17 +33,17 @@
     <header>
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/top"><img src="/images/atlas.png"></a>
+                <a class="navbar-brand" href="/top"><img style="height:50px;" src="/images/atlas.png"></a>
                 <div class="d-flex">
-                    <div class="nav-item display-9">
-                        <p>{{ Auth::user()->username }}さん</p>
+                    <div class="nav-item-user display-9">
+                        <p>{{ Auth::user()->username }}　　さん</p>
                     </div>
                     <!--アコーディオンメニュー矢印 -->
                     <button type="button" class="menu-btn">
                         <span class="inn"></span>
                     </button>
                     <nav class="menu">
-                        <ul>
+                        <ul class="menu-ul">
                             <li><a href="/top">ホーム</a></li>
                             <li><a href="/profile">プロフィール</a></li>
                             <li><a href="/logout">ログアウト</a></li>

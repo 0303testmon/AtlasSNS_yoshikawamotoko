@@ -9,6 +9,11 @@ header {
     background: #186AC9;
 }
 
+.nav-item-user {
+    margin: 15px 30px 0 0;
+    color: #fff;
+}
+
 /* main content */
 #row {
     display: flex;
@@ -81,7 +86,7 @@ header {
 
 .menu {
     position: absolute;
-    top: 135px;
+    top: 80px;
     right: 0px;
     width: 20%;
     background-color: #fff;
@@ -101,6 +106,12 @@ header {
             justify-content: center;
         }
     }
+}
+
+.menu-ul {
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid #000;
 }
 
 .menu.is-open {
@@ -163,6 +174,15 @@ header {
 .search_btn {
     border: none;
     background-color: #fff;
+}
+
+.form-keyword {
+    margin-top: 10px;
+}
+
+.form-username {
+    height: 50px;
+    width: 80%;
 }
 
 /* 投稿編集 */
