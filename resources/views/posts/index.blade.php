@@ -13,7 +13,8 @@
                         {{-- <div class="col">
                         </div> --}}
                         <div class="col post-img-icon">
-                            <img src="images/{{ Auth::user()->images }}">
+                            <img src="/storage/images/{{ Auth::user()->images }}" style="height:60px;">
+                            {{-- <img src="images/{{ Auth::user()->images }}"> --}}
                         </div>
                         {{-- <p>{{ Auth::user()->username }}</p> --}}
 
@@ -51,7 +52,9 @@
                         <div class="row">
                             <div class="col">
                                 <div class="row">
-                                    <div class="col post-img-icon"><img src=" {{ asset('images/' . $list->user->images) }}">
+                                    <div class="col post-img-icon">
+                                        <img src="/storage/images/{{ $list->user->images }}" style="height:60px;">
+                                        {{-- <img src=" {{ asset('images/' . $list->user->images) }}"> --}}
                                     </div>
                                     <div class="col-8">{{ $list->user->username }}<br>{{ $list->post }}</div>
                                 </div>

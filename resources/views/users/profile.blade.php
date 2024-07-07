@@ -91,4 +91,7 @@
             </div>
         </div>
     </div>
+    @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
 @endsection

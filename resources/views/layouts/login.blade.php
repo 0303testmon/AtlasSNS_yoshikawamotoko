@@ -50,7 +50,8 @@
                         </ul>
                     </nav>
                     <div class="nav-item">
-                        <img src="/images/{{ Auth::user()->images }}">
+                        <img src="/storage/images/{{ Auth::user()->images }}" style="height:60px;">
+                        {{-- <img src="/images/{{ Auth::user()->images }}"> --}}
                     </div>
                 </div>
             </div>

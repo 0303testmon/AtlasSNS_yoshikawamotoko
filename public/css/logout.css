@@ -22,7 +22,51 @@ html {
     align-items: center; */
     margin-top: 50px;
     color: aliceblue;
+    position: relative;
 }
+
+.login-cover {
+    color: aliceblue;
+    width: 20%;
+    /* 画像の幅に合わせるため */
+    padding: 30px 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);
+    /* 半透明の背景。 */
+    margin-left: 40%;
+    margin-right: 40%;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.register-cover {
+    color: aliceblue;
+    width: 20%;
+    /* 画像の幅に合わせるため */
+    padding: 30px 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);
+    /* 半透明の背景。 */
+    margin-left: 40%;
+    margin-right: 40%;
+    height: 530px;
+    border-radius: 10px;
+}
+
+.add-cover {
+    color: aliceblue;
+    width: 25%;
+    /* 画像の幅に合わせるため */
+    padding: 30px 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);
+    /* 半透明の背景。 */
+    margin-left: 37%;
+    margin-right: 40%;
+    height: 330px;
+    border-radius: 10px;
+}
+
 
 .login-user {
     /* text-align: left; */
