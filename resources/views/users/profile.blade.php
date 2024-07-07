@@ -3,13 +3,15 @@
 @section('content')
     <div class="profile_container">
         <div class="update">
-            {!! Form::open(['url' => '/profile/update']) !!}
+            {{-- {!! Form::open(['url' => '/profile/update']) !!} --}}
+            {!! Form::open(['url' => '/profile/update', 'enctype' => 'multipart/form-data']) !!}
             @csrf
             {{ Form::hidden('id', Auth::user()->id) }}
             <div class="container profile-ichiran">
                 <div class="row">
                     <div class="col-4 profile-img">
-                        <img class="update-icon" src="/images/{{ Auth::user()->images }}">
+                        {{-- <img class="update-icon" src="/images/{{ Auth::user()->images }}"> --}}
+                        <img src="/storage/images/{{ Auth::user()->images }}" style="height:60px;">
                     </div>
                     {{-- <div class="col-3">
                         <div for="name">ユーザー名</div>

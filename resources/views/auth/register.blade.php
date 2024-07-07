@@ -39,7 +39,7 @@
                 </div>
             @endif
             <br>
-            <p><a href="/login">ログイン画面へ戻る</a></p>
+            <p><a class="login-sinki" href="/login">ログイン画面へ戻る</a></p>
         </div>
     </div>
     {!! Form::close() !!}

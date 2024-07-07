@@ -23,7 +23,7 @@
             <br>
             <div class="login-sinki">
                 <br>
-                <p><a href="/register">新規ユーザーの方はこちら</a></p>
+                <p><a class="login-sinki" href="/register">新規ユーザーの方はこちら</a></p>
             </div>
         </div>
     </div>

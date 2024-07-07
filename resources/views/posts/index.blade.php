@@ -4,6 +4,7 @@
     <div class="container">
         <div class="js-modal">
             {!! Form::open(['url' => '/postcreate']) !!}
+            {{-- {!! Form::open(['url' => '/postcreate', 'enctype' => 'multipart/form-data']) !!} --}}
             <div>
                 <div class="container">
                     <div class="row">
