@@ -8,7 +8,8 @@
         <div class="row">
             <div class="col"></div>
             <div class="col end-0">
-                <img src=" {{ asset('images/' . $user->images) }}">
+                {{-- <img src=" {{ asset('images/' . $user->images) }}"> --}}
+                <img src="/storage/images/{{ $user->images }}" style="height:60px;">
             </div>
             <div class="col-6 other-text">
                 <p>ユーザー名　　　　　{{ $user->username }}</p>
@@ -38,7 +39,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <img src=" {{ asset('images/' . $post->user->images) }}"></a>
+                        {{-- <img src=" {{ asset('images/' . $post->user->images) }}"> --}}
+                        <img src="/storage/images/{{ $post->user->images }}" style="height:60px;"></a>
                     </div>
                     <div class="col-8">
                         <div class="position-relative">

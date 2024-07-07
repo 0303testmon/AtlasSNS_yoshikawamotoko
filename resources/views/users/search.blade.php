@@ -37,11 +37,8 @@
                     <div class="col">
                     </div>
                     <div class="col">
-                        {{-- <div class="position-relative">
-                            <div class="position-absolute "> --}}
-                        <img style="height:50px;" src=" {{ asset('images/' . $user->images) }}">
-                        {{-- </div>
-                        </div> --}}
+                        {{-- <img style="height:50px;" src=" {{ asset('images/' . $user->images) }}"> --}}
+                        <img src="/storage/images/{{ $user->images }}" style="height:60px;">
                     </div>
                     <div class="col-3">
                         <div class="position-relative">
@@ -63,19 +60,5 @@
                 @endif
             </div>
         </div>
-        {{-- @if (isset($user) and !(Auth::user() == $user))
-            <tr>
-                <td><img src=" {{ asset('images/' . $user->images) }}"></td>
-                <td>{{ $user->username }}</td>
-                {{-- <td>{{ $user->follow->following_id }}</td> --}}
-        {{-- </tr>
-            <input type="hidden" name="user_id" value="{{ $user->username }}">
-            @if (auth()->user()->isFollowing($user->id))
-                <a href="{{ route('unfollow', ['userId' => $user->id]) }}" class="btn btn-danger">フォロー解除</a>
-            @else
-                <a href="{{ route('follow', ['userId' => $user->id]) }}" class="btn btn-primary">フォローする</a>
-            @endif
-            <br>
-        @endif --}}
     @endforeach
 @endsection

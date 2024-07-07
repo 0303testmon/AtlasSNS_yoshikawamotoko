@@ -10,8 +10,10 @@
             @foreach ($followed_users as $followed_user)
                 {{-- $userから$followed_userを抽出 --}}
                 <div class="col">
-                    <a href="{{ URL::to('/otherprofile/' . $followed_user->id) }}"><img
-                            src="{{ asset('images/' . $followed_user->images) }}"></a>
+                    <a href="{{ URL::to('/otherprofile/' . $followed_user->id) }}">
+                        {{-- <img src="{{ asset('images/' . $followed_user->images) }}"> --}}
+                        <img src="/storage/images/{{ $followed_user->images }}" style="height:60px;">
+                    </a>
                 </div>
             @endforeach
         </div>
@@ -33,8 +35,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <a href="{{ URL::to('/otherprofile/' . $post->user_id) }}"><img
-                                src=" {{ asset('images/' . $post->user->images) }}"></a>
+                        <a href="{{ URL::to('/otherprofile/' . $post->user_id) }}">
+                            {{-- <img src=" {{ asset('images/' . $post->user->images) }}"> --}}
+                            <img src="/storage/images/{{ $post->user->images }}" style="height:60px;">
+                        </a>
                     </div>
                     <div class="col-8">
                         <div class="position-relative">
