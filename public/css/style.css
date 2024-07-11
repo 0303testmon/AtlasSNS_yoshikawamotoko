@@ -47,17 +47,18 @@ header {
 
 /* アコーディオンメニュー */
 .menu-btn {
+    border: none;
     width: 60px;
     height: 60px;
     /* position: absolute; */
-    top: 1px;
-    right: 1px;
-    background-color: #fff;
-    outline: initial;
+    /* top: 1px;
+    right: 1px; */
+    background-color: #186AC9;
+    /* outline: initial; */
 
-    &:focus-visible {
+    /* &:focus-visible {
         box-shadow: 0 0 0 2px blue;
-    }
+    } */
 
     .inn {
         position: relative;
@@ -73,8 +74,8 @@ header {
             width: 15px;
             height: 15px;
             transform: translate(-50%, -40%) rotate(135deg);
-            border-top: 1px solid #000;
-            border-right: 1px solid #000;
+            border-top: 1px solid #ffffff;
+            border-right: 1px solid #ffffff;
             transition: 0.3s ease;
             z-index: 10;
         }
@@ -126,12 +127,11 @@ ul.menu-ul li {
 
     a {
         text-decoration: none;
-        color: blue;
     }
 }
 
 ul.menu-ul li:hover {
-    background-color: blue;
+    background-color: #000080;
     transition: background-color 1ms;
 
     a {
@@ -139,6 +139,26 @@ ul.menu-ul li:hover {
         text-decoration: none;
     }
 }
+
+ul.menu-ul a {
+    text-decoration: none;
+    color: darkgray;
+
+    li {
+        transition: background-color 50ms;
+    }
+}
+
+ul.menu-ul a:hover {
+    text-decoration: none;
+    color: azure;
+
+    li {
+        background-color: blue;
+        transition: background-color 1ms;
+    }
+}
+
 
 .menu.is-open {
     opacity: 1;
